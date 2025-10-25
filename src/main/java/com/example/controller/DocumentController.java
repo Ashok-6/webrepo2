@@ -73,11 +73,8 @@ import com.example.entity.Document;
 import com.example.service.DocumentService;
 
 @RestController
-//@CrossOrigin(origins = "*") // Allow all origins or change to your frontend URL
-@RequestMapping("/api/documents")
-//@CrossOrigin(origins = "http://localhost:5173")
 @CrossOrigin(origins = "https://webrepo1vercel.vercel.app")
-
+@RequestMapping("/api/documents")
 public class DocumentController {
 
     private final DocumentService service;
