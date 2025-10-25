@@ -13,18 +13,26 @@
 ## Start the app
 #CMD ["java", "-jar", "app.jar"]
 #
+# ---------- Build stage ----------
+FROM maven:3.9.4-eclipse-temurin-17 AS builder
+WORKDIR /workspace
 
-# Use OpenJDK image
-FROM openjdk:17-jdk-slim
+COPY mvnw . 
+COPY .mvn .mvn
+COPY pom.xml . 
+RUN chmod +x ./mvnw && ./mvnw dependency:go-offline
 
-# Set working directory
+COPY src ./src
+RUN ./mvnw clean package -DskipTests
+
+# ---------- Runtime stage ----------
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
-# Copy target JAR file into container
-COPY target/documentmanager-0.0.1-SNAPSHOT.jar app.jar
+# Copy the built JAR from the builder stage
+COPY --from=builder /workspace/target/*.jar app.jar
 
-# Expose port
 EXPOSE 8087
 
-# Command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar /app/app.jar"]
+
