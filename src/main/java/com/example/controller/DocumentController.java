@@ -73,8 +73,6 @@ import com.example.entity.Document;
 import com.example.service.DocumentService;
 
 @RestController
-@CrossOrigin(origins = "https://webrepo1vercel.vercel.app")
-//@CrossOrigin(origins = "https://webrepo1vercel.vercel.app")
 @RequestMapping("/api/documents")
 public class DocumentController {
 
