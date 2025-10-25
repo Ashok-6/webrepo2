@@ -19,7 +19,7 @@ public class DocumentmanagerApplication {
 	        @Override
 	        public void addCorsMappings(CorsRegistry registry) {
 	            registry.addMapping("/**")
-	                    .allowedOrigins("https://webrepo12.vercel.app/")
+	                    .allowedOrigins("https://webrepo1vercel.vercel.app/")
 	                    .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 	                    .allowedHeaders("*");
 	        }
