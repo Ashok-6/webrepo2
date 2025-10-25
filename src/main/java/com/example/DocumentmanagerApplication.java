@@ -13,14 +13,15 @@ public class DocumentmanagerApplication {
 		SpringApplication.run(DocumentmanagerApplication.class, args);
 	}
 	
-//	@Bean
-//	public WebMvcConfigurer corsConfigurer() {
-//	    return new WebMvcConfigurer() {
-//	        @Override
-//	        public void addCorsMappings(CorsRegistry registry) {
-//	            registry.addMapping("/**")
-//	                    .allowedOrigins("https://webrepo1vercel.vercel.app/");
-//	        }
-//	    };
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+	    return new WebMvcConfigurer() {
+	        @Override
+	        public void addCorsMappings(CorsRegistry registry) {
+	            registry.addMapping("/**")
+	                    .allowedOrigins("https://webrepo1vercel.vercel.app");
+	        }
+	    };
+	}
 
 }
