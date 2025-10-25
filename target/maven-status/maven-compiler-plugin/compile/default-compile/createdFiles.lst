@@ -1,5 +1,5 @@
-com\example\controller\DocumentController.class
 com\example\entity\Document.class
+com\example\service\DocumentService.class
+com\example\controller\DocumentController.class
 com\example\repository\DocumentRepository.class
 com\example\DocumentmanagerApplication.class
-com\example\service\DocumentService.class
